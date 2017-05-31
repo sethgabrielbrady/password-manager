@@ -12,7 +12,8 @@ A simple password manager written in javascript using node and node-persist.
 
 ``node-persist`` will make a folder in the root called ``persist``. In it you will
 see a ``json`` file called 'accounts'.  This is the file that stores all the accounts
-data created.
+data created. The app uses ``yargs ``  to get input from the user in the terminal and
+uses ``crypto-js`` to encrypt the ``json`` file stored in the persist folder.
 
 ## MODULES
 ###  node-persist 0.0.6
@@ -26,3 +27,8 @@ https://www.npmjs.com/package/yargs
 "Yargs be a node.js library fer hearties tryin' ter parse optstrings.
 With yargs, ye be havin' a map that leads straight to yer treasure!
 Treasure of course, being a simple option hash."
+
+### crypto-js 3.1.5
+https://www.npmjs.com/package/crypto-js
+
+"JavaScript library of crypto standards."
