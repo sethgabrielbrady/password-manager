@@ -1,9 +1,7 @@
 # Password Manager
 
-
-
 A simple password manager written in javascript using node.
-``node-persist`` will make a folder in the root called ``persist``. In it you will
+``node-persist`` will create a folder in the root called ``persist``. In it you will
 see a ``json`` file called 'accounts'.  This is the file that stores all the accounts
 data created. The app uses ``yargs ``  to get input from the user in the terminal and
 uses ``crypto-js`` to encrypt the ``json`` file stored in the persist folder.
@@ -21,7 +19,7 @@ uses ``crypto-js`` to encrypt the ``json`` file stored in the persist folder.
 For storing account information, go into the  command terminal and type
 
 `node app.js create -n <Account name> -u <UserName> -p <Account Password> -m <Master Password>`
- 
+
 This will  encrypt and store the object inside the `` persist `` folder in the root directory. The master password will be used to retrieve the account information.
 
 To retrieve account information, go into the  command terminal and type
@@ -30,7 +28,8 @@ To retrieve account information, go into the  command terminal and type
 
  This will decrypt and return the account data as an object.
 
-
+## FUTURE UPDATES
+For now, everything is handled directly inside the ``app.js`` file. In the next update, i'd like to move encryption and decryption into separate modules. I will also be adding some checks for the `master passeord` to ensure a certain amount of characters are used, certain types of characters are used, etc.
 
 ## MODULES
 

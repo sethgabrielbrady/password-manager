@@ -56,6 +56,11 @@ let argv = require("yargs")
 .help("help").argv;
 let command = argv._[0];
 
+/**
+* Gets the accounts object persisted data and decrypts it
+* @param  {string} masterPass
+* @return {object}
+*/
 function getAccounts(masterPass) {
   let encryptedAccount = storage.getItemSync("accounts");
   let accounts = [];
@@ -68,6 +73,12 @@ function getAccounts(masterPass) {
   return accounts;
 }
 
+/**
+* Encrypts and saves the accounts to the accounts files
+* @param  {object} accounts
+* @param  {string} masterPass
+* @return {string}
+*/
 function saveAccounts(accounts, masterPass) {
   let encryptedAccounts = crypto.AES.encrypt(
     JSON.stringify(accounts),
@@ -79,6 +90,12 @@ function saveAccounts(accounts, masterPass) {
   return accounts;
 }
 
+/**
+* Adds a new account to the accounts array.
+* @param  {object} account
+* @param  {string} masterPass
+* @return {object}
+*/
 function createAccount(account, masterPass) {
   let accounts = getAccounts(masterPass);
 
@@ -89,6 +106,12 @@ function createAccount(account, masterPass) {
   return account;
 }
 
+/**
+* fetch's the account when you pass an account name
+* @param  {object.key} accountName
+* @param  {string} masterPass
+* @return {object}
+*/
 function getAccount(accountName, masterPass) {
   let accounts = getAccounts(masterPass);
   let matchedAccount;
@@ -102,6 +125,11 @@ function getAccount(accountName, masterPass) {
   return matchedAccount;
 }
 
+/**
+* Checks that the correct commands 'create' and 'get' are used. Does further Checks
+* for the correct input types and object keys are added.
+*
+*/
 if (command === "create") {
   try {
     let createdAccount = createAccount(
