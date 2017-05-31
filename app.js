@@ -38,7 +38,7 @@ let argv = require('yargs')
     name: {
       demand: true,
       alias: 'n',
-      description: 'Account name (eg: Google, Instagram)',
+      description: 'Account name (eg: Google, Instagramp)',
       type: 'string'
     },
     masterPass: {

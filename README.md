@@ -1,6 +1,14 @@
 # Password Manager
 
-A simple password manager written in javascript using node and node-persist.
+
+
+A simple password manager written in javascript using node.
+``node-persist`` will make a folder in the root called ``persist``. In it you will
+see a ``json`` file called 'accounts'.  This is the file that stores all the accounts
+data created. The app uses ``yargs ``  to get input from the user in the terminal and
+uses ``crypto-js`` to encrypt the ``json`` file stored in the persist folder.
+
+##### THIS WAS AN EXERCISE IN NODE. YOU MAY NOT WANT TO USE THIS TO STORE IMPORTANT INFORMATION.
 
 
 ## Getting Started
@@ -8,27 +16,37 @@ A simple password manager written in javascript using node and node-persist.
 1. Clone the repository
 2. run ``npm install``
 3. run ``npm start`` in the terminal.
-4. profit!
+4. To store or retrieve account information:
 
-``node-persist`` will make a folder in the root called ``persist``. In it you will
-see a ``json`` file called 'accounts'.  This is the file that stores all the accounts
-data created. The app uses ``yargs ``  to get input from the user in the terminal and
-uses ``crypto-js`` to encrypt the ``json`` file stored in the persist folder.
+For storing account information, go into the  command terminal and type
+
+`node app.js create -n <Account name> -u <UserName> -p <Account Password> -m <Master Password>`
+ 
+This will  encrypt and store the object inside the `` persist `` folder in the root directory. The master password will be used to retrieve the account information.
+
+To retrieve account information, go into the  command terminal and type
+
+`node app.js  get -n <Account Name> -m <Master Password>`
+
+ This will decrypt and return the account data as an object.
+
+
 
 ## MODULES
-###  node-persist 0.0.6
+
+####  node-persist 0.0.6
 https://www.npmjs.com/package/node-persist
 
 "Node-persist doesn't use a database. Instead, JSON documents are stored in the file system for persistence. Because there is no network overhead and your data is just in-memory, node-persist is just about as fast as a database can get. Node-persist uses the HTML5 localStorage API, so it's easy to learn."
 
-### yargs 3.15.0
+#### yargs 3.15.0
 https://www.npmjs.com/package/yargs
 
 "Yargs be a node.js library fer hearties tryin' ter parse optstrings.
 With yargs, ye be havin' a map that leads straight to yer treasure!
 Treasure of course, being a simple option hash."
 
-### crypto-js 3.1.5
+#### crypto-js 3.1.5
 https://www.npmjs.com/package/crypto-js
 
 "JavaScript library of crypto standards."
