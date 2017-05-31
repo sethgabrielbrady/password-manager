@@ -3,23 +3,23 @@ console.log("Starting PASSWORD MANAGER");
 let storage = require("node-persist");
 storage.initSync();
 
-let sethAccount = {
-  name: "Google",
-  username: "sethbrady",
-  password: "1234"
-};
-
-let JuliaAccount = {
-  name: "Yahoo",
-  username: "js1221",
-  password: "1221"
-};
-
-let catAccount = {
-  name: "Tinder",
-  username: "Kat",
-  password: "meow"
-};
+// let sethAccount = {
+//   name: "Google",
+//   username: "sethbrady",
+//   password: "1234"
+// };
+//
+// let JuliaAccount = {
+//   name: "Yahoo",
+//   username: "js1221",
+//   password: "1221"
+// };
+//
+// let catAccount = {
+//   name: "Tinder",
+//   username: "Kat",
+//   password: "meow"
+// };
 
 function createAccount(account) {
   let accounts = storage.getItemSync("accounts");
